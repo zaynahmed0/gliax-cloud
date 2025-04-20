@@ -1,4 +1,5 @@
-# GliaX Cloud
+# gliax-cloud
+![CI](https://github.com/zaynahmed0/gliax-cloud/workflows/CI/badge.svg)
 
 A cloud-based platform for managing and deploying applications.
 
