@@ -11,6 +11,10 @@ GliaX Cloud is a comprehensive cloud platform that provides tools and services f
 
 This repository is under active development. Check back soon for setup instructions and documentation.
 
+## Contributing
+
+We welcome contributions! Please read our [Contributing Guidelines](docs/CONTRIBUTING.md) to understand our branching model and development process.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
