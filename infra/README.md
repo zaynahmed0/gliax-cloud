@@ -1,6 +1,13 @@
 # Infrastructure
 
-This directory contains the infrastructure-as-code (IaC) configuration using Terraform CDK for Python.
+This directory contains infrastructure-as-code (IaC) configurations, deployment scripts, and cloud resource definitions.
+
+## Contents
+
+- Cloud infrastructure configurations
+- Deployment pipelines
+- Environment configurations
+- Resource provisioning scripts
 
 ## Prerequisites
 
