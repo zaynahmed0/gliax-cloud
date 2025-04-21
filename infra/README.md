@@ -1,6 +1,6 @@
 # Infrastructure
 
-This directory contains infrastructure-as-code (IaC) configurations, deployment scripts, and cloud resource definitions.
+This directory contains infrastructure-as-code (IaC) configurations using Pulumi for the GliaX Cloud platform.
 
 ## Contents
 
@@ -11,45 +11,51 @@ This directory contains infrastructure-as-code (IaC) configurations, deployment 
 
 ## Prerequisites
 
-- Python 3.10 or later
+- Node.js 16 or later
+- Pulumi CLI (`brew install pulumi` on macOS)
 - AWS CLI configured with appropriate credentials
-- Terraform CDK CLI (`npm install -g cdktf-cli`)
 
 ## Setup
 
 1. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   npm install
    ```
 
-2. Initialize the CDK project:
+2. Initialize Pulumi stack for your environment:
    ```bash
-   cdktf init --template="python"
+   pulumi stack init dev  # or staging, prod
    ```
 
-3. Set the environment context:
+3. Configure environment-specific settings:
    ```bash
-   cdktf context -c env=dev  # or prod, staging, etc.
+   pulumi config set env dev
+   pulumi config set --secret supabaseUrl https://xyz.supabase.co
+   pulumi config set --secret supabaseKey YOUR_SUPABASE_KEY
+   pulumi config set --secret modalToken YOUR_MODAL_TOKEN
    ```
 
 ## Deployment
 
-1. Synthesize the Terraform configuration:
+1. Preview changes:
    ```bash
-   cdktf synth
+   pulumi preview
    ```
 
-2. Deploy the infrastructure:
+2. Deploy infrastructure:
    ```bash
-   cdktf deploy
+   pulumi up --yes
    ```
 
 ## Infrastructure Components
 
-- S3 Bucket for artifacts storage with versioning enabled
-- Environment-specific naming (e.g., gliax-artifacts-dev, gliax-artifacts-prod)
+- S3 Bucket for artifacts storage with versioning and lifecycle rules
+- Supabase project configuration
+- Modal API token management
+- Vercel project provisioning (placeholder)
 
 ## Security
 
-- AWS credentials should be configured via environment variables or AWS CLI configuration
+- Sensitive configuration values are stored as secrets in Pulumi
+- AWS credentials should be configured via environment variables or AWS CLI
 - Consider using AWS SSO or IAM roles for production deployments 
